@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Biomedical Engineer | EEG Signal Processing | Deep Learning | BCI"/>
+<title>Md. Husain Hamid Chowdhury Ruddro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;
+  --gray:#555;
+  --light:#888;
+  --border:#e5e5e5;
+  --bg:#fff;
+  --accent:#2563eb;
+  --tag-bg:#f3f4f6;
+}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  color:var(--black);
+  background:var(--bg);
+}
+
+/* NAV */
+nav{
+  border-bottom:1px solid var(--border);
+  padding:0 2rem;
+  position:sticky;
+  top:0;
+  background:#fff;
+  z-index:100;
+}
+.nav-inner{
+  max-width:860px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:2.5rem;
+  height:52px;
+}
+.nav-inner a{
+  font-size:.82rem;
+  font-weight:500;
+  color:var(--gray);
+  text-decoration:none;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  transition:color .15s;
+}
+.nav-inner a:hover,
+.nav-inner a.active{color:var(--black)}
+
+/* MAIN LAYOUT */
+.container{
+  max-width:860px;
+  margin:0 auto;
+  padding:3rem 2rem 5rem;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:3.5rem;
+  align-items:start;
+}
+
+/* SIDEBAR */
+.sidebar{}
+.avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  background:#f3f4f6;
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'EB Garamond',serif;
+  font-size:3rem;
+  color:var(--gray);
+  margin-bottom:1.25rem;
+  overflow:hidden;
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.sidebar-name{
+  font-family:'EB Garamond',serif;
+  font-size:1.25rem;
+  font-weight:600;
+  line-height:1.3;
+  margin-bottom:.85rem;
+}
+.social-links{
+  display:flex;
+  gap:.7rem;
+  flex-wrap:wrap;
+  margin-bottom:1.25rem;
+}
+.social-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  color:var(--gray);
+  text-decoration:none;
+  transition:all .15s;
+}
+.social-links a:hover{border-color:var(--black);color:var(--black)}
+.social-links svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.affil{
+  margin-bottom:1.5rem;
+}
+.affil-label{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--light);
+  font-weight:500;
+  margin-bottom:.6rem;
+}
+.affil-item{
+  font-size:.82rem;
+  color:var(--gray);
+  line-height:1.6;
+  padding:.2rem 0;
+}
+.affil-item strong{color:var(--black);font-weight:500}
+.cv-btn{
+  display:inline-block;
+  padding:.5rem 1rem;
+  border:1px solid var(--black);
+  border-radius:4px;
+  font-size:.8rem;
+  font-weight:500;
+  color:var(--black);
+  text-decoration:none;
+  letter-spacing:.02em;
+  transition:all .15s;
+}
+.cv-btn:hover{background:var(--black);color:#fff}
+
+/* MAIN CONTENT */
+.main{}
+.bio-heading{
+  font-family:'EB Garamond',serif;
+  font-size:1.55rem;
+  font-weight:500;
+  letter-spacing:.01em;
+  border-bottom:1px solid var(--border);
+  padding-bottom:.6rem;
+  margin-bottom:1.25rem;
+}
+.bio-text{
+  font-size:.92rem;
+  color:#333;
+  line-height:1.85;
+  margin-bottom:1.75rem;
+}
+.bio-text strong{color:var(--black)}
+.bio-text a{color:var(--accent);text-decoration:none}
+.bio-text a:hover{text-decoration:underline}
+
+/* RESEARCH INTERESTS */
+.interests-heading{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  font-weight:600;
+  color:var(--light);
+  margin-bottom:.75rem;
+}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
+.tag{
+  background:var(--tag-bg);
+  color:var(--gray);
+  font-size:.78rem;
+  padding:.3rem .75rem;
+  border-radius:3px;
+  font-weight:500;
+}
+
+/* NEWS */
+.news-table{width:100%;border-collapse:collapse}
+.news-table tr{border-bottom:1px solid #f0f0f0}
+.news-table td{
+  padding:.6rem 0;
+  vertical-align:top;
+  font-size:.87rem;
+  line-height:1.6;
+}
+.news-date{
+  color:var(--light);
+  white-space:nowrap;
+  padding-right:1.5rem;
+  font-size:.8rem;
+  font-weight:500;
+  padding-top:.65rem;
+  width:90px;
+  min-width:90px;
+}
+.news-text{color:#333}
+.news-text strong{color:var(--black)}
+.news-text a{color:var(--accent);text-decoration:none}
+.news-text a:hover{text-decoration:underline}
+
+/* PUBLICATIONS PAGE */
+.pub-section{margin-bottom:2.5rem}
+.pub-section-title{
+  font-family:'EB Garamond',serif;
+  font-size:1.2rem;
+  font-weight:500;
+  border-bottom:1px solid var(--border);
+  padding-bottom:.5rem;
+  margin-bottom:1.25rem;
+}
+.pub-item{
+  display:flex;
+  gap:1rem;
+  padding:.9rem 0;
+  border-bottom:1px solid #f0f0f0;
+}
+.pub-num{
+  font-size:.8rem;
+  color:var(--light);
+  min-width:24px;
+  padding-top:.15rem;
+  font-weight:500;
+}
+.pub-content{}
+.pub-title{
+  font-size:.9rem;
+  font-weight:500;
+  color:var(--black);
+  margin-bottom:.25rem;
+  line-height:1.5;
+}
+.pub-title a{color:var(--black);text-decoration:none;transition:color .15s}
+.pub-title a:hover{color:var(--accent)}
+.pub-authors{font-size:.82rem;color:var(--gray);margin-bottom:.2rem}
+.pub-authors strong{color:var(--black)}
+.pub-venue{font-size:.82rem;color:var(--gray);font-style:italic}
+.pub-venue em{font-style:normal;color:var(--accent);font-weight:500}
+.pub-links{display:flex;gap:.75rem;margin-top:.4rem}
+.pub-links a{font-size:.76rem;color:var(--accent);text-decoration:none;font-weight:500}
+.pub-links a:hover{text-decoration:underline}
+
+/* PROJECTS PAGE */
+.project-item{padding:1.25rem 0;border-bottom:1px solid #f0f0f0}
+.project-title{font-size:.95rem;font-weight:600;color:var(--black);margin-bottom:.3rem}
+.project-meta{font-size:.8rem;color:var(--light);margin-bottom:.5rem;font-weight:500}
+.project-desc{font-size:.87rem;color:#333;line-height:1.75}
+.project-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.65rem}
+.project-tag{background:#f8f8f8;border:1px solid var(--border);color:var(--gray);font-size:.74rem;padding:.18rem .6rem;border-radius:3px}
+
+/* SKILLS PAGE */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem}
+.skill-block{}
+.skill-block-title{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:var(--light);margin-bottom:.6rem}
+.skill-list{list-style:none;font-size:.87rem;color:#333}
+.skill-list li{padding:.2rem 0;display:flex;align-items:center;gap:.5rem}
+.skill-list li::before{content:'–';color:var(--border);font-weight:300}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:1.5rem 2rem;
+  font-size:.78rem;
+  color:var(--light);
+  text-align:center;
+}
+footer a{color:var(--light);text-decoration:none}
+footer a:hover{color:var(--black)}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .container{grid-template-columns:1fr;gap:2rem}
+  .avatar{width:120px;height:120px;font-size:2.2rem}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  nav .nav-inner{gap:1.5rem;overflow-x:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#bio" class="active">Home</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="avatar">RH</div>
+
+    <div class="sidebar-name">Md. Husain Hamid<br/>Chowdhury Ruddro</div>
+
+    <div class="social-links">
+      <!-- Email -->
+      <a href="mailto:ruddrochowdhury202@gmail.com" title="Email">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </a>
+      <!-- GitHub -->
+      <a href="https://github.com/ruddro026" target="_blank" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      </a>
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/ruddro-chowdhury-24688b28b" target="_blank" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5A6 6 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <!-- Google Scholar placeholder -->
+      <a href="#" title="Google Scholar">
+        <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M9 10h6M9 14h4"/></svg>
+      </a>
+    </div>
+
+    <div class="affil">
+      <div class="affil-label">Affiliation</div>
+      <div class="affil-item"><strong>Research Assistant</strong><br/>Learnify Research Lab</div>
+    </div>
+
+    <div class="affil">
+      <div class="affil-label">Education</div>
+      <div class="affil-item"><strong>B.Sc. Biomedical Engineering</strong><br/>KUET, Bangladesh<br/><span style="font-size:.78rem;color:var(--light)">Jan 2020 – Oct 2025</span></div>
+    </div>
+
+    <div class="affil">
+      <div class="affil-label">Location</div>
+      <div class="affil-item">Dhaka, Bangladesh</div>
+    </div>
+
+    <a href="mailto:ruddrochowdhury202@gmail.com" class="cv-btn">Contact Me</a>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="bio">
+
+    <!-- BIOGRAPHY -->
+    <h2 class="bio-heading">BIOGRAPHY</h2>
+    <div class="bio-text">
+      <p style="margin-bottom:.9rem">
+        <strong>Md. Husain Hamid Chowdhury Ruddro</strong> is a Biomedical Engineering graduate from
+        <strong>Khulna University of Engineering &amp; Technology (KUET)</strong>, Bangladesh, and currently
+        serves as a <strong>Research Assistant</strong> at <strong>Learnify Research Lab</strong>, where his
+        work focuses on EEG-based neural signal processing and deep learning for Brain-Computer Interfaces.
+      </p>
+      <p style="margin-bottom:.9rem">
+        His most recent project, <strong>MSCANet</strong>, is a lightweight Multi-Scale Coupled Attention
+        Network for motor imagery EEG decoding, achieving state-of-the-art performance on the BCIC IV-2a
+        and IV-2b benchmark datasets. He has also developed an interpretable multi-domain machine learning
+        framework for automated detection of <strong>Major Depressive Disorder</strong> from EEG, achieving
+        98.95% accuracy on the HUSM dataset.
+      </p>
+      <p>
+        With three <strong>IEEE conference papers</strong> published across RAAICON 2025, BECITHCON 2025,
+        and ICRPSET 2024, Ruddro is actively building his research portfolio in preparation for
+        <strong>PhD applications (Fall 2027)</strong> in Biomedical / Neuroengineering programs at US
+        institutions. His broader research interests span EEG signal processing, rehabilitation engineering,
+        neuroengineering, and biomedical image processing.
+      </p>
+    </div>
+
+    <!-- RESEARCH INTERESTS -->
+    <div class="interests-heading">Research Interests</div>
+    <div class="tags">
+      <span class="tag">EEG Signal Processing</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">Brain-Computer Interface</span>
+      <span class="tag">Motor Imagery Decoding</span>
+      <span class="tag">Neuroengineering</span>
+      <span class="tag">Rehabilitation Engineering</span>
+      <span class="tag">Biomedical Image Processing</span>
+      <span class="tag">Explainable AI</span>
+    </div>
+
+    <!-- NEWS -->
+    <h2 class="bio-heading" id="research">RECENT NEWS</h2>
+    <table class="news-table">
+      <tbody>
+        <tr>
+          <td class="news-date">Mar 2025</td>
+          <td class="news-text">Joined <strong>Learnify Research Lab</strong> as a Research Assistant, focusing on EEG-based motor imagery decoding.</td>
+        </tr>
+        <tr>
+          <td class="news-date">2025</td>
+          <td class="news-text">Paper accepted at <strong>IEEE RAAICON 2025</strong> — <em>Hand-xLSTM: A Deep Learning Framework to Classify Hand Movements Motor Imagery EEG.</em></td>
+        </tr>
+        <tr>
+          <td class="news-date">2025</td>
+          <td class="news-text">Paper accepted at <strong>IEEE BECITHCON 2025</strong> — <em>Multiclass Emotion Classification using xLSTM Learning of Optimized Features from EEG Signal.</em></td>
+        </tr>
+        <tr>
+          <td class="news-date">2025</td>
+          <td class="news-text">Received <strong>Certificate of Appreciation</strong> from IEEE RAAICON 2025 for paper presentation.</td>
+        </tr>
+        <tr>
+          <td class="news-date">Oct 2025</td>
+          <td class="news-text">Completed <strong>B.Sc. in Biomedical Engineering</strong> at Khulna University of Engineering &amp; Technology (KUET).</td>
+        </tr>
+        <tr>
+          <td class="news-date">2024</td>
+          <td class="news-text">Paper accepted at <strong>IEEE ICRPSET 2024</strong> — <em>Automated Heparin Administration and Dialysate Control System with Real-time Monitoring of Patient Vital Indicator.</em></td>
+        </tr>
+        <tr>
+          <td class="news-date">2024</td>
+          <td class="news-text">Awarded <strong>1st Place</strong> at the Biomedical System Design Project (BME 3200) Showcasing event, Department of BME, KUET.</td>
+        </tr>
+        <tr>
+          <td class="news-date">Feb 2024</td>
+          <td class="news-text">Began undergraduate thesis on <em>Multiclass Emotion Classification from EEG using xLSTM</em> under Dr. A.B.M. Aowlad Hossain.</td>
+        </tr>
+        <tr>
+          <td class="news-date">2023</td>
+          <td class="news-text">Received <strong>Technical Scholarship</strong> for academic excellence at KUET (also awarded 2021).</td>
+        </tr>
+        <tr>
+          <td class="news-date">2021</td>
+          <td class="news-text">Participated in <strong>ISCEA PTAK PRIZE</strong> Global Supply Chain Competition.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- PUBLICATIONS -->
+    <h2 class="bio-heading" style="margin-top:3rem" id="publications">PUBLICATIONS</h2>
+    <div class="pub-section">
+      <div class="pub-section-title">Conference Papers</div>
+
+      <div class="pub-item">
+        <div class="pub-num">[1]</div>
+        <div class="pub-content">
+          <div class="pub-title"><a href="https://doi.org/10.1109/RAAICON69033.2025.11502305" target="_blank">Hand-xLSTM: A Deep Learning Framework to Classify Hand Movements Motor Imagery EEG</a></div>
+          <div class="pub-authors"><strong>M. H. H. C. Ruddro</strong>, T. Hasan, A. B. M. A. Hossain</div>
+          <div class="pub-venue">IEEE 4th International Conference on Robotics, Automation, AI and IoT <em>(RAAICON 2025)</em>, Dhaka, Bangladesh, 2025, pp. 1–6.</div>
+          <div class="pub-links"><a href="https://doi.org/10.1109/RAAICON69033.2025.11502305" target="_blank">[DOI]</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">[2]</div>
+        <div class="pub-content">
+          <div class="pub-title"><a href="https://doi.org/10.1109/BECITHCON69222.2025.11504290" target="_blank">Multiclass Emotion Classification using xLSTM Learning of Optimized Features from EEG Signal</a></div>
+          <div class="pub-authors"><strong>M. H. H. C. Ruddro</strong>, A. B. M. A. Hossain</div>
+          <div class="pub-venue">IEEE International Conference on Biomedical Engineering, Computer and IT for Health <em>(BECITHCON 2025)</em>, Dhaka, Bangladesh, 2025, pp. 315–319.</div>
+          <div class="pub-links"><a href="https://doi.org/10.1109/BECITHCON69222.2025.11504290" target="_blank">[DOI]</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">[3]</div>
+        <div class="pub-content">
+          <div class="pub-title"><a href="https://doi.org/10.1109/ICRPSET64863.2024.10955949" target="_blank">Automated Heparin Administration and Dialysate Control System with Real-time Monitoring of Patient Vital Indicator in Hemodialysis</a></div>
+          <div class="pub-authors"><strong>M. H. H. C. Ruddro</strong>, J. F. Rahman</div>
+          <div class="pub-venue">International Conference on Recent Progresses in Science, Engineering and Technology <em>(ICRPSET 2024)</em>, Rajshahi, Bangladesh, 2024, pp. 1–5.</div>
+          <div class="pub-links"><a href="https://doi.org/10.1109/ICRPSET64863.2024.10955949" target="_blank">[DOI]</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <h2 class="bio-heading" style="margin-top:3rem" id="projects">PROJECTS</h2>
+
+    <div class="project-item">
+      <div class="project-title">MSCANet — Lightweight Multi-Scale Coupled Attention Network for MI-EEG Decoding</div>
+      <div class="project-meta">Learnify Research Lab · 2025 (Ongoing)</div>
+      <div class="project-desc">Developed a lightweight deep learning model integrating Multi-Scale Temporal CNN and a Coupled Transformer with Subject-Adaptive Batch Normalization. Achieved 83.26% / 87.32% (subject-dependent) and 60.64% / 76.14% (cross-subject) accuracy on BCIC IV-2a &amp; IV-2b datasets. Targeting journal submission at Neurocomputing.</div>
+      <div class="project-tags">
+        <span class="project-tag">PyTorch</span><span class="project-tag">MNE-Python</span><span class="project-tag">BCIC IV-2a</span><span class="project-tag">BCIC IV-2b</span><span class="project-tag">Transformers</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">EEG-Based Major Depressive Disorder Detection</div>
+      <div class="project-meta">Learnify Research Lab · 2025 (Ongoing)</div>
+      <div class="project-desc">Interpretable multi-domain ML framework combining time-domain, spectral, and theta-band coherence features on the HUSM dataset (64 subjects). RF/GBC-based feature selection across six classifiers. Achieved 98.95% accuracy with 99% precision/recall/F1.</div>
+      <div class="project-tags">
+        <span class="project-tag">Scikit-learn</span><span class="project-tag">HUSM Dataset</span><span class="project-tag">XAI</span><span class="project-tag">Feature Selection</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Multiclass EEG Emotion Classification using xLSTM</div>
+      <div class="project-meta">Undergraduate Thesis · KUET · Feb 2024 – Sept 2025</div>
+      <div class="project-desc">Implemented Extended LSTM (xLSTM) for multiclass emotion classification from EEG with feature selection. Achieved 99.06% on EEG Brainwave Dataset (3-class) and 81.25% on DEAP (4-class). Supervised by Dr. A.B.M. Aowlad Hossain.</div>
+      <div class="project-tags">
+        <span class="project-tag">TensorFlow</span><span class="project-tag">DEAP</span><span class="project-tag">xLSTM</span><span class="project-tag">EEGLAB</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Low-Cost Portable Hemodialysis Machine Prototype</div>
+      <div class="project-meta">Third Year Project (BME 3200) · KUET · Aug 2023 – Jan 2024</div>
+      <div class="project-desc">Designed a hemodialysis system with on-site dialysate synthesis (DI water + buffer + electrolytes) and an integrated 3D-fabricated automatic heparin pump for controlled heparin delivery. Awarded 1st Place at KUET BME Design Showcase.</div>
+      <div class="project-tags">
+        <span class="project-tag">Embedded Systems</span><span class="project-tag">3D Fabrication</span><span class="project-tag">Sensors</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">IoT-Based Smart Colorimetric Creatinine Analyzer</div>
+      <div class="project-meta">KUET · 2023</div>
+      <div class="project-desc">Portable IoT-based creatinine level detection (low/medium/high) using an RGB sensor and ESP32, with real-time output via MIT App Inventor mobile application.</div>
+      <div class="project-tags">
+        <span class="project-tag">ESP32</span><span class="project-tag">IoT</span><span class="project-tag">MIT App Inventor</span>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="project-title">Retinal Blood Vessel Segmentation from Fundus Images</div>
+      <div class="project-meta">KUET · 2023</div>
+      <div class="project-desc">MATLAB pipeline for retinal vessel segmentation using green channel extraction, CLAHE, Gaussian filtering, morphological operations, and Otsu's thresholding — for diabetic retinopathy and hypertension diagnosis.</div>
+      <div class="project-tags">
+        <span class="project-tag">MATLAB</span><span class="project-tag">Image Processing</span><span class="project-tag">CLAHE</span>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <h2 class="bio-heading" style="margin-top:3rem" id="skills">TECHNICAL SKILLS</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-block-title">Signal Processing</div>
+        <ul class="skill-list">
+          <li>MNE-Python</li>
+          <li>EEGLAB</li>
+          <li>BIOPAC</li>
+          <li>MATLAB</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Deep Learning</div>
+        <ul class="skill-list">
+          <li>PyTorch</li>
+          <li>TensorFlow</li>
+          <li>Scikit-learn</li>
+          <li>Explainable AI</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Programming</div>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>MATLAB</li>
+          <li>C / C++</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Simulation</div>
+        <ul class="skill-list">
+          <li>COMSOL</li>
+          <li>ANSYS</li>
+          <li>Simulink</li>
+          <li>NI Multisim</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Bioinformatics</div>
+        <ul class="skill-list">
+          <li>AutoDock Tools</li>
+          <li>PyRx</li>
+          <li>Discovery Studio</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <div class="skill-block-title">Biosignals</div>
+        <ul class="skill-list">
+          <li>EEG / EMG</li>
+          <li>ECG / fMRI</li>
+          <li>BCI Systems</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 <strong>Md. Husain Hamid Chowdhury Ruddro</strong> &nbsp;·&nbsp; Dhaka, Bangladesh &nbsp;·&nbsp;
+  <a href="mailto:ruddrochowdhury202@gmail.com">ruddrochowdhury202@gmail.com</a></p>
+  <p style="margin-top:.4rem">"Decoding the brain, one signal at a time."</p>
+</footer>
+
+</body>
+</html>
